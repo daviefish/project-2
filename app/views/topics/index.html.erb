@@ -1,7 +1,19 @@
-<h1>Topics</h1>
+<div class="container">
 
-  <ul>
-    <% @topics.each do |topic| %>
-      <li class="col-xs-12"> <%= topic.title %></li>
-    <% end %>
-  </ul>
+  <h1>Topics</h1>
+
+  <% @topics.each do |topic| %>
+
+    <p> <strong>Title:</strong> <%= topic.title %></p>
+    <p> <strong>Date:</strong> <%= topic.date %></p>
+    <p> <strong>User:</strong> <%= topic.user_id %></p>
+
+    <form method="POST" action="/topics/<%= topic.id %>">
+      <!-- form hack to tell the server to do a DELETE  -->
+      <input name="_method" value="DELETE" type="hidden">
+      <button>Delete</button>
+    </form>
+
+  <% end %>
+
+</div>

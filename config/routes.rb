@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   post 'topics' => 'topics#create'
 
+  delete '/topics/:id' => 'topics#destroy'
+
   get 'users' => 'users#index'
 
   get 'signup' => 'users#new'

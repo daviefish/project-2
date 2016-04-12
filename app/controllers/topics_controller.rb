@@ -1,10 +1,10 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.all
+    @topics = Topic.where(user_id: params[:id])
   end
 
   def new
-    @topic = Topic.new
+    @topic_id = params[:user_id]
   end
 
   def show
@@ -14,13 +14,34 @@ class TopicsController < ApplicationController
   end
 
   def create
-    message = params[:message]
-    user_id = params[:user_id]
-    ll = Topic.new
-    ll.message = message
-    ll.lover_id = lover_id
-    # INSERT INTO love_letters
-    ll.save
+    # title = params[:title]
+    # date = params[:date]
+    # content = params[:content]
+    # user_id = params[:user_id]
+
+    # t = Topic.new
+    # t.title = title
+    # t.date = date
+    # t.content = content
+    # t.user_id = user_id
+    # t.save
+
+    Topic.create({
+      title: params[:title],
+      date: params[:date],
+      content: params[:content],
+      user_id: params[:user_id]
+    })
+
+    redirect_to '/topics'
+
+  end
+
+  def destroy
+    id = params[:id]
+    topic = Topic.find_by(id: id)
+    topic.destroy
+    redirect_to '/topics'
   end
 
 private

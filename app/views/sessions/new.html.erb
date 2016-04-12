@@ -1,17 +1,17 @@
-<h1>Login</h1>
+<h1 class="col-md-12">Login</h1>
 
 <%= form_for :login do |f| %>
-  <div>
+  <div class="col-md-12">
     <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
 
-  <div>
+  <div class="col-md-12">
     <%= f.label :password %>
     <%= f.password_field :password %>
   </div>
 
-  <div>
+  <div class="col-md-12">
     <%= f.submit 'Log in' %>
   </div>
 

@@ -1,2 +1,8 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1 class="col-md-12"><%= @user.name %></h1>
+
+<p class="col-md-12">
+  This coffee is a <%= @user.name %> roast from <%= @user.name %>, and we have <%= @user.name %> pounds available.
+</p>
+
+<div class="col-md-12"><%= image_tag @user.avatar.url %></div>
+

@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id.to_s
-      redirect_to users_path(@user.id)
+      redirect_to user_path(@user)
     else
       render :new
     end
@@ -24,10 +24,16 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to users_path
+  end
+
 private
 
   def user_params
-    params.require(:user).permit(:name, :gender, :location, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :gender, :location, :email, :password, :password_confirmation, :avatar)
   end
 
 

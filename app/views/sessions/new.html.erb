@@ -1,19 +1,22 @@
-<h1 class="col-md-12">Login</h1>
+<div class="container">
+  <h1 class="col-xs-12">Login</h1>
 
-<%= form_for :login do |f| %>
-  <div class="col-md-12">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
+  <%= form_for :login do |f| %>
+    <div class="col-xs-12">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
 
-  <div class="col-md-12">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
+    <div class="col-xs-12">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
 
-  <div class="col-md-12">
-    <%= f.submit 'Log in' %>
-  </div>
+    <div class="col-xs-12">
+      <%= f.submit 'Log in' %>
+    </div>
 
-<% end %>
+    <i><a href="/signup" class="col-xs-12" style="margin-top: 15px"> Don't have an account? Sign Up! </a></i>
 
+  <% end %>
+</div>

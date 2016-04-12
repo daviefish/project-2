@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
 
-  root 'users#new'
+  get 'topics/index'
+
+  get 'topics/new'
+
+  get 'topics/show'
+
+  get 'topics/edit'
+
+  root 'users#index'
 
   get 'users' => 'users#index'
 
-  get 'users/new' => 'users#new'
+  get 'signup' => 'users#new'
 
   post 'users' => 'users#create'
 
@@ -12,9 +20,12 @@ Rails.application.routes.draw do
 
   post '/login' => 'sessions#create'
 
+  get '/users/:id' => 'users#show', as: :user
+
+  delete '/users/:id' => 'users#destroy'
+
   delete '/logout' => 'sessions#destroy'
 
-  get '/users/:id' => 'users#show', as: :user
 
 
   # The priority is based upon order of creation: first created -> highest priority.

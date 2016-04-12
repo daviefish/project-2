@@ -1,8 +1,24 @@
-<h1 class="col-md-12"><%= @user.name %></h1>
+<div class="container">
+  <h1 class="col-md-12"><%= @user.name %></h1>
 
-<p class="col-md-12">
-  This coffee is a <%= @user.name %> roast from <%= @user.name %>, and we have <%= @user.name %> pounds available.
-</p>
+  <div class="row">
+    <div class= "col-xs-3">
+      <img class="img-thumbnail" <%= image_tag @user.avatar.url %>
+    </div>
 
-<div class="col-md-12"><%= image_tag @user.avatar.url %></div>
+    <div class="col-xs-offset-0 col-xs-4">
+    <br>
+      <p>
+        <strong><%= @user.name %> loves training calisthenics! </strong>
+      </p >
+      <ul>
+        <li>Gender: <%=@user.gender%></li>
 
+        <li>Location: <%=@user.location%></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <%= link_to "Back to the user list!", users_path %>
+</div>

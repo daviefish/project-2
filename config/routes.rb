@@ -6,9 +6,9 @@ Rails.application.routes.draw do
 
   get 'topics/new'
 
-  get 'topics/show'
-
   get 'topics/edit'
+
+  get '/topics/:id' => 'topics#show', as: :topic
 
   post 'topics' => 'topics#create'
 

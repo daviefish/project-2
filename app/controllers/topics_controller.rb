@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.where(user_id: params[:id])
+    @topics = Topic.all
   end
 
   def new
@@ -8,33 +8,36 @@ class TopicsController < ApplicationController
   end
 
   def show
+    @topic = Topic.find(params[:id])
   end
 
   def edit
   end
 
   def create
-    # title = params[:title]
-    # date = params[:date]
-    # content = params[:content]
-    # user_id = params[:user_id]
-
     # t = Topic.new
-    # t.title = title
-    # t.date = date
-    # t.content = content
-    # t.user_id = user_id
-    # t.save
+    # t.title = params[:title]
+    # t.date = params[:date]
+    # t.content = params[:content]
+    # t.user_id = params[:user_id]
 
-    Topic.create({
+    # if t.save
+    #   redirect_to topic_path(t)
+    # else
+    #   render :new
+    # end
+
+    @user = User.find(session[:user_id])
+    @topic = @user.topics.new ({
       title: params[:title],
-      date: params[:date],
+      date:  params[:date],
       content: params[:content],
-      user_id: params[:user_id]
     })
-
-    redirect_to '/topics'
-
+    if @topic.save
+      redirect_to topic_path(@topic)
+    else
+      render :new
+    end
   end
 
   def destroy

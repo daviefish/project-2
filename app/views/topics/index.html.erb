@@ -1,19 +1,28 @@
 <div class="container">
-
   <h1>Topics</h1>
 
-  <% @topics.each do |topic| %>
+  <% if current_user %>
+    <ul>
+    <% @topics.each do |topic| %>
+      <p style="margin-top: 15px"> <strong>Title:</strong> <%= link_to topic.title, topic_path(topic) %></p>
+      <p style="margin-top: 15px"> <strong>Date:</strong> <%= topic.date %></p>
+      <p style="margin-top: 15px"> <strong>User:</strong> <%= current_user.name %></p>
+      <i><%= link_to 'Delete this topic!', topic_path(topic), method: :delete, data: { confirm: 'Are you sure?' } %></i>
+      <br>
+      <br>
+    <% end %>
+   </ul>
 
-    <p> <strong>Title:</strong> <%= topic.title %></p>
-    <p> <strong>Date:</strong> <%= topic.date %></p>
-    <p> <strong>User:</strong> <%= topic.user_id %></p>
-
-    <form method="POST" action="/topics/<%= topic.id %>">
-      <!-- form hack to tell the server to do a DELETE  -->
-      <input name="_method" value="DELETE" type="hidden">
-      <button>Delete</button>
-    </form>
-
+  <% else %>
+    <a href="/login" class="col-md-12"> Login </a>
+    <a href="/signup" class="col-md-12"> Sign up </a>
   <% end %>
 
+<i><div style="margin-top: 15px"> <%= link_to "Make new topic!", topics_new_path %></div><i>
+<i><div style="margin-top: 15px"> <%= link_to "Back to the user list!", users_path %></div><i>
+
+
 </div>
+
+
+

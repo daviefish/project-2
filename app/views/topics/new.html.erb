@@ -1,2 +1,32 @@
-<h1>Topics#new</h1>
-<p>Find me in app/views/topics/new.html.erb</p>
+<div class="container">
+
+  <h1> Topics </h1>
+
+  <%= form_for @topic do |f| %>
+    <div class="col-xs-12">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+
+     <div class="col-xs-12">
+      <%= f.label :date %>
+      <%= f.text_field :date %>
+    </div>
+
+    <div class="col-xs-12">
+      <%= f.label :content %>
+      <%= f.text_field :content %>
+    </div>
+
+     <div class="col-xs-12">
+      <%= f.label :user_id %>
+      <%= f.text_field :user_id %>
+    </div>
+
+    <div class="col-xs-12" style="margin-top: 15px">
+      <%= f.submit 'Submit' %>
+    </div>
+  <%end%>
+
+
+</div>

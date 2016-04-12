@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'topics/index'
+  root 'users#index'
+
+  get 'topics' => 'topics#index'
 
   get 'topics/new'
 
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
 
   get 'topics/edit'
 
-  root 'users#index'
+  post 'topics' => 'topics#create'
 
   get 'users' => 'users#index'
 

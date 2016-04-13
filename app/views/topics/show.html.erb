@@ -1,7 +1,7 @@
 <div class="container">
   <% if current_user %>
 
-    <h1 class="col-xs-12">Topic Author: <%= current_user.name %></h1>
+    <h1 class="col-xs-12">Topic Author: <%= link_to current_user.name, user_path(current_user) %></h1>
     <h3 class="col-xs-12">Title: <%= @topic.title %></h3>
     <h5 class="col-xs-12">Date: <%= @topic.date %></h5>
     <p class="col-xs-12">Content: <%= @topic.content %></p>

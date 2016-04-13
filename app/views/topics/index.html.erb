@@ -1,21 +1,22 @@
 <div class="container">
   <h1>Topics</h1>
 
-  <% if current_user %>
-    <ul>
-    <% @topics.each do |topic| %>
-      <p style="margin-top: 15px"> <strong>Title:</strong> <%= link_to topic.title, topic_path(topic) %></p>
-      <p style="margin-top: 15px"> <strong>Date:</strong> <%= topic.date %></p>
-      <p style="margin-top: 15px"> <strong>User:</strong> <%= current_user.name %></p>
-      <i><%= link_to 'Delete this topic!', topic_path(topic), method: :delete, data: { confirm: 'Are you sure?' } %></i>
+    <% if current_user %>
+      <ul>
+      <% @topics.each do |topic| %>
+        <div class="span12" style="border: 1px solid black ">
+          <p style="margin-top: 15px"> <strong>Title:</strong> <%= link_to topic.title, topic_path(topic) %></p>
+          <p style="margin-top: 15px"> <strong>Date:</strong> <%= topic.date %></p>
+          <p style="margin-top: 15px"> <strong>User:</strong> <%= @user.name, user_path(users) %></p>
+          <div class="col-xs-offset-10"><i><%= link_to 'Delete this topic!', topic_path(topic), method: :delete, data: { confirm: 'Are you sure?' } %></i></div>
+        </div>
       <br>
-      <br>
-    <% end %>
-   </ul>
+      <% end %>
+     </ul>
 
   <% else %>
-    <a href="/login" class="col-md-12"> Login </a>
-    <a href="/signup" class="col-md-12"> Sign up </a>
+    <a href="/login" class="col-xs-12"> Login </a>
+    <a href="/signup" class="col-xs-12"> Sign up </a>
   <% end %>
 
 <i><div style="margin-top: 15px"> <%= link_to "Make new topic!", topics_new_path %></div><i>

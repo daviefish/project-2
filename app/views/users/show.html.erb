@@ -13,12 +13,19 @@
       </p >
       <ul>
         <li>Gender: <%=@user.gender%></li>
-
         <li>Location: <%=@user.location%></li>
       </ul>
     </div>
 
   </div>
 
-  <%= link_to "Back to the user list!", users_path %>
+  <div style="margin-bottom: 15px"><%= link_to "Back to the user list!", users_path %> </div>
+
+  <h2 style="margin-bottom: 15px">List of <%=@user.name%>'s Topics</h2>
+    <% @user.topics.each do |topic| %>
+      <p>Title: <%= link_to topic.title, topic_path(topic)%></p>
+      <p>Date: <%= topic.date %></p>
+      <br>
+    <% end %>
+
 </div>

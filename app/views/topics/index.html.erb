@@ -7,7 +7,7 @@
         <div class="span12" style="border: 1px solid black ">
           <p style="margin-top: 15px"> <strong>Title:</strong> <%= link_to topic.title, topic_path(topic) %></p>
           <p style="margin-top: 15px"> <strong>Date:</strong> <%= topic.date %></p>
-          <p style="margin-top: 15px"> <strong>User:</strong> <%= @user.name, user_path(users) %></p>
+          <p style="margin-top: 15px"> <strong>User:</strong> <%= topic.user.name %></p>
           <div class="col-xs-offset-10"><i><%= link_to 'Delete this topic!', topic_path(topic), method: :delete, data: { confirm: 'Are you sure?' } %></i></div>
         </div>
       <br>

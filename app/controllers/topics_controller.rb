@@ -1,4 +1,7 @@
 class TopicsController < ApplicationController
+  after_action :allow_iframe, only: :embed
+  def embed
+  end
   def index
     @topics = Topic.all
     @users = User.all
@@ -16,23 +19,12 @@ class TopicsController < ApplicationController
   end
 
   def create
-    # t = Topic.new
-    # t.title = params[:title]
-    # t.date = params[:date]
-    # t.content = params[:content]
-    # t.user_id = params[:user_id]
-
-    # if t.save
-    #   redirect_to topic_path(t)
-    # else
-    #   render :new
-    # end
-
     @user = User.find(session[:user_id])
     @topic = @user.topics.new ({
       title: params[:title],
       date:  params[:date],
       content: params[:content],
+      video: params[:video],
     })
     if @topic.save
       redirect_to topic_path(@topic)
@@ -49,6 +41,10 @@ class TopicsController < ApplicationController
   end
 
 private
+
+  def allow_iframe
+    response.headers.except! 'X-Frame-Options'
+  end
 
   def topic_params
     params.require(:topic).permit(:title, :date, :content, :user_id)

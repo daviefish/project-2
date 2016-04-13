@@ -1,12 +1,12 @@
 <div class="container">
-  <h1 class="col-md-12"><%= @user.name %></h1>
+  <h1 class="col-md-12 topic-container"><%= @user.name %></h1>
 
   <div class="row">
     <div class= "col-xs-3">
       <img class="img-thumbnail" <%= image_tag @user.avatar.url %>
     </div>
 
-    <div class="col-xs-offset-0 col-xs-4">
+    <div class="col-xs-offset-0 col-xs-8 topic-container">
     <br>
       <p>
         <strong><%= @user.name %> loves training calisthenics! </strong>
@@ -21,11 +21,16 @@
 
   <div style="margin-bottom: 15px"><%= link_to "Back to the user list!", users_path %> </div>
 
-  <h2 style="margin-bottom: 15px">List of <%=@user.name%>'s Topics</h2>
-    <% @user.topics.each do |topic| %>
-      <p>Title: <%= link_to topic.title, topic_path(topic)%></p>
-      <p>Date: <%= topic.date %></p>
-      <br>
-    <% end %>
+
+  <h2 style="margin-bottom: 15px" class="topic-container">List of <%=@user.name%>'s Topics</h2>
+
+      <% @user.topics.each do |topic| %>
+        <div class="col-xs-12 topic-container" style="border: solid black 1px; margin-top: 15px">
+        <p>Title: <%= link_to topic.title, topic_path(topic)%></p>
+        <p>Date: <%= topic.date %></p>
+        </div>
+        <br>
+      <% end %>
+
 
 </div>

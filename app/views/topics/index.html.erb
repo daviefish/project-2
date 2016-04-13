@@ -1,26 +1,29 @@
 <div class="container">
-  <h1>Topics</h1>
 
-    <% if current_user %>
-      <ul>
-      <% @topics.each do |topic| %>
-        <div class="span12" style="border: 1px solid black ">
-          <p style="margin-top: 15px"> <strong>Title:</strong> <%= link_to topic.title, topic_path(topic) %></p>
-          <p style="margin-top: 15px"> <strong>Date:</strong> <%= topic.date %></p>
-          <p style="margin-top: 15px"> <strong>User:</strong> <%= topic.user.name %></p>
-          <div class="col-xs-offset-10"><i><%= link_to 'Delete this topic!', topic_path(topic), method: :delete, data: { confirm: 'Are you sure?' } %></i></div>
-        </div>
-      <br>
-      <% end %>
-     </ul>
+  <% if current_user %>
+    <h1 class="container-title">Topics</h1>
+
+    <% @topics.each do |topic| %>
+      <div class="topic-container span12" style="border: 1px solid black ">
+        <p class="topic-title" style="margin-top: 15px"> <strong>Title:</strong> <%= link_to topic.title, topic_path(topic) %></p>
+        <p class="topic-date" style="margin-top: 15px"> <strong>Date:</strong> <%= topic.date %></p>
+        <p class="topic-user" style="margin-top: 15px"> <strong>User:</strong> <%= link_to topic.user.name, user_path(topic.user) %></p>
+        <div class="topic-delete"><i><%= link_to 'Delete this topic!', topic_path(topic), method: :delete, data: { confirm: 'Are you sure?' } %></i></div>
+      </div>
+    <br>
+    <% end %>
+
+    <div class="topic-container">
+      <i><div style="margin-top: 15px"> <%= link_to "Make new topic!", topics_new_path %></div><i>
+      <i><div style="margin-top: 15px"> <%= link_to "Back to the user list!", users_path %></div><i>
+    </div>
 
   <% else %>
-    <a href="/login" class="col-xs-12"> Login </a>
-    <a href="/signup" class="col-xs-12"> Sign up </a>
-  <% end %>
 
-<i><div style="margin-top: 15px"> <%= link_to "Make new topic!", topics_new_path %></div><i>
-<i><div style="margin-top: 15px"> <%= link_to "Back to the user list!", users_path %></div><i>
+    <h1>Welcome Calisthenics Enthusiasts!</h1>
+    <a href="/login" class="col-xs-12" style="font-size: 250%"> Login </a>
+    <a href="/signup" class="col-xs-12" style="font-size: 250%"> Sign up </a>
+  <% end %>
 
 
 </div>

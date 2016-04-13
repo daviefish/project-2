@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
-  root 'users#index'
+  get 'comments/index'
+
+  get 'comments/new'
+
+  get 'comments/show'
+
+  get 'comments/edit'
+
+  root 'topics#index'
 
   get 'topics' => 'topics#index'
 

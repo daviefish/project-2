@@ -1,3 +1,32 @@
 // Place all the styles related to the topics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.body-container {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/b/ba/Planche.jpg');
+  background-size: cover;
+  text-align: left;
+}
+
+.container-title {
+  color: #000;
+  background: #ffffff;
+  border-color: none;
+  border-radius: 6px;
+  padding: 10px;
+  opacity: 0.9;
+}
+
+.topic-container {
+  background: #ffffff;
+  border-color: none;
+  border-radius: 6px;
+  padding: 10px;
+  opacity: 0.9;
+}
+
+.topic-title {
+  font-size: 30px;
+}

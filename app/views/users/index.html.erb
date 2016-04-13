@@ -1,11 +1,11 @@
 <div class="container">
-  <h1 class="col-xs-12">Users</h1>
+  <h1 class="col-xs-12 topic-container">Users</h1>
 
     <% if current_user %>
       <div class="row">
         <ul>
           <% @users.each do |user| %>
-            <div class="col-xs-12" style="margin-top: 15px"> <%= link_to user.name, user_path(user) %> </div>
+            <div class="col-xs-12 topic-container" style="margin-top: 15px"> <%= link_to user.name, user_path(user) %> </div>
             <div><img class="img-thumbnail col-xs-2" <%= image_tag user.avatar.url %></div>
             <i><div class="col-xs-offset-0 col-xs-12"><%= link_to 'Delete this user!', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></i></div>
             <br>

@@ -1,31 +1,32 @@
-<div class="container">
 
-  <h1> Topics </h1>
+  <div class="container topic-container">
 
-<div class="row">
-  <form method="POST" action="/topics">
-    <label>Title</label>
-    <input type="text" name="title">
-    <br>
+    <div class="col-xs-1">
+      <h1> Topics </h1>
 
-    <label>Date</label>
-    <input type="text" name="date">
-    <br>
+      <div class="row">
+        <form method="POST" action="/topics">
+          <label>Title</label>
+          <input type="text" name="title">
+          <br>
 
-     <label>Content</label>
-    <input type="text" name="content">
-    <br>
+          <label>Date</label>
+          <input type="date" name="date">
+          <br>
 
-   <!--   <label>User</label>
-    <input type="text" name="user_id"> -->
+           <label>Video URL</label>
+          <input type="text" name="video">
+          <br>
 
-<!--     <input type="hidden" name="user_id" value="<%= @user_id %>">
- -->
-    <button style="margin-top: 15px">Create</button>
-    <br>
-  </form>
-</div>
+           <label>Content</label>
+          <input type="text" name="content" style="width: 500px; height: 300px">
+          <br>
+
+          <button style="margin-top: 15px">Create</button>
+          <br>
+        </form>
+      </div>
+    </div>
 
 
-
-</div>
+  </div>

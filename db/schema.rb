@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412000823) do
+ActiveRecord::Schema.define(version: 20160413175629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "title"
+    t.string   "date"
+    t.string   "content"
+    t.string   "video"
+    t.integer  "user_id"
+    t.integer  "topic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["topic_id"], name: "index_comments_on_topic_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "topics", force: :cascade do |t|
     t.string   "title"
@@ -23,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160412000823) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "video"
   end
 
   add_index "topics", ["user_id"], name: "index_topics_on_user_id", using: :btree
@@ -41,5 +56,7 @@ ActiveRecord::Schema.define(version: 20160412000823) do
     t.datetime "avatar_updated_at"
   end
 
+  add_foreign_key "comments", "topics"
+  add_foreign_key "comments", "users"
   add_foreign_key "topics", "users"
 end

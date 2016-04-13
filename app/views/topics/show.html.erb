@@ -1,12 +1,28 @@
 <div class="container">
+
   <% if current_user %>
 
-    <h1 class="col-xs-12">Topic Author: <%= link_to current_user.name, user_path(current_user) %></h1>
-    <h3 class="col-xs-12">Title: <%= @topic.title %></h3>
-    <h5 class="col-xs-12">Date: <%= @topic.date %></h5>
-    <p class="col-xs-12">Content: <%= @topic.content %></p>
+    <h1 class="col-xs-12 topic-container"> <%= link_to @topic.user.name, user_path(@topic.user) %></h1>
 
-  <% end %>
+	<div>
+		<div class="row col-xs-6">
+			<% if @topic.video != "" %>
+					<iframe width="560" height="315" src="<%=@topic.video.gsub! 'watch?v=', 'embed/'%>" frameborder="0" allowfullscreen></iframe>
+				<% else %>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/dWO9uP_VJV8" frameborder="0" allowfullscreen></iframe>
+				<% end %>
+		</div>
 
-  <i><div class="col-xs-12"> <%= link_to "Back to the topic list!", topics_path %></div><i>
+		<div class="col-xs-offset-1 col-xs-5 topic-container">
+	  	<h3 class="col-xs-12"> <%= @topic.title %></h3>
+	    <i><p class="col-xs-12"> Date: <%= @topic.date %> </p></i>
+	    <p class="col-xs-12"> <%= @topic.content %> </p>
+		</div>
+	</div>
+
+
+	<% end %>
+
+
+  <i><div class="col-xs-12 topic-container"> <%= link_to "Back to the topic list!", topics_path %></div><i>
 </div>

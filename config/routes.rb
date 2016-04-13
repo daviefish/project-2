@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'comments/edit'
 
+  post 'topics/:id/comments' => 'comments#create'
+
   root 'topics#index'
 
   get 'topics' => 'topics#index'

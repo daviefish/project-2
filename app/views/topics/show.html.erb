@@ -22,6 +22,7 @@
 			  	<h3 class="col-xs-12"> <%= @topic.title %></h3>
 			    <i><p class="col-xs-12"> Date: <%= @topic.date %> </p></i>
 			    <p class="col-xs-12"> <%= @topic.content %> </p>
+			    <%= link_to "edit", edit_topic_path(@topic), :class => 'btn btn-default' %>
 			    <i><div class="col-xs-12"> <%= link_to "Back to the topic list!", topics_path %></div><i>
 				</div>
 		</div>

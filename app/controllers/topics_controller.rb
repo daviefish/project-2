@@ -1,7 +1,10 @@
 class TopicsController < ApplicationController
+
   after_action :allow_iframe, only: :embed
+
   def embed
   end
+
   def index
     @topics = Topic.all
     @users = User.all
@@ -17,6 +20,16 @@ class TopicsController < ApplicationController
   end
 
   def edit
+    @topic = Topic.find(params[:id])
+  end
+
+  def update
+    @topic = Topic.find(params[:id])
+    if @topic.update_attribues(topic_params)
+      redirect_to topic_path
+    else
+      render :edit
+    end
   end
 
   def create
@@ -52,3 +65,4 @@ private
   end
 
 end
+

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get 'comments/edit'
 
+
   post 'topics/:id/comments' => 'comments#create'
 
   root 'topics#index'
@@ -16,13 +17,17 @@ Rails.application.routes.draw do
 
   get 'topics/new'
 
-  get 'topics/edit'
+  patch '/topics/:id' => 'topics#update'
+
+  get '/topics/:id/edit' => 'topics#edit', as: :edit_topic
 
   get '/topics/:id' => 'topics#show', as: :topic
 
   post 'topics' => 'topics#create'
 
   delete '/topics/:id' => 'topics#destroy'
+
+
 
   get 'users' => 'users#index'
 

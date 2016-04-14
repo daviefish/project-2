@@ -1,2 +1,31 @@
-<h1>Topics#edit</h1>
-<p>Find me in app/views/topics/edit.html.erb</p>
+<div class="container topic-container">
+
+<div class="col-xs-1">
+  <h1> Edit Topic </h1>
+
+  <div class="row">
+    <form method="POST" action="/topics">
+      <label>Title</label>
+      <input type="text" name="title">
+      <br>
+
+      <label>Date</label>
+      <input type="date" name="date">
+      <br>
+
+       <label>Video URL</label>
+      <input type="text" name="video">
+      <br>
+
+       <label>Content</label>
+      <input type="text" name="content" style="width: 500px; height: 300px">
+      <br>
+
+      <button style="margin-top: 15px">Update</button>
+      <br>
+    </form>
+  </div>
+</div>
+
+
+</div>

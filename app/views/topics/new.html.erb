@@ -1,32 +1,37 @@
-
   <div class="container topic-container">
 
     <div class="col-xs-1">
       <h1> Topics </h1>
 
       <div class="row">
-        <form method="POST" action="/topics">
-          <label>Title</label>
-          <input type="text" name="title">
-          <br>
+        <%= form_for(@topic) do |f| %>
+          <div class="col-xs-12">
+            <%= f.label :title %>
+            <%= f.text_field :title %>
+          </div>
 
-          <label>Date</label>
-          <input type="date" name="date">
-          <br>
+           <div class="col-xs-12">
+            <%= f.label :date %>
+            <%= f.date_field :date %>
+          </div>
 
-           <label>Video URL</label>
-          <input type="text" name="video">
-          <br>
+          <div class="col-xs-12">
+            <%= f.label :video %>
+            <%= f.text_field :video %>
+          </div>
 
-           <label>Content</label>
-          <input type="text" name="content" style="width: 500px; height: 300px">
-          <br>
+          <div class="col-xs-12">
+            <%= f.label :content %>
+            <%= f.text_area :content %>
+          </div>
 
-          <button style="margin-top: 15px">Create</button>
-          <br>
-        </form>
+          <div class="col-xs-12" style="margin-top: 15px">
+            <%= f.submit 'Edit' %>
+          </div>
+
+       <% end %>
       </div>
-    </div>
 
+    </div>
 
   </div>

@@ -31,7 +31,7 @@
 	        <li>
 	          <form action="/logout" method="post">
       			<input name="_method" value="DELETE" type="hidden">
-      			<button style="margin-top: 20px">Logout</button>
+      			<button style="margin-top: 8px" class="btn btn-default">Logout</button>
     			</form>
 	        </li>
 	      </ul>
@@ -39,7 +39,7 @@
       <% else %>
 
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="/login">Login</a></li>
+	        <button style="margin-top: 8px" class="btn btn-default"><a href="/login">Login</a></button>
 	      </ul>
 
 	  <% end %>

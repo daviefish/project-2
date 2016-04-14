@@ -12,6 +12,7 @@ class TopicsController < ApplicationController
 
   def new
     @topic_id = params[:user_id]
+    @topic = Topic.new({user_id: session[:user_id]})
   end
 
   def show
@@ -25,7 +26,7 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.find(params[:id])
-    if @topic.update_attribues(topic_params)
+    if @topic.update_attributes(topic_params)
       redirect_to topic_path
     else
       render :edit
@@ -34,12 +35,7 @@ class TopicsController < ApplicationController
 
   def create
     @user = User.find(session[:user_id])
-    @topic = @user.topics.new({
-      title: params[:title],
-      date:  params[:date],
-      content: params[:content],
-      video: params[:video],
-    })
+    @topic = @user.topics.new(topic_params)
     if @topic.save
       redirect_to topic_path(@topic)
     else
@@ -61,7 +57,7 @@ private
   end
 
   def topic_params
-    params.require(:topic).permit(:title, :date, :content, :user_id)
+    params.require(:topic).permit(:title, :date, :content, :video, :user_id)
   end
 
 end

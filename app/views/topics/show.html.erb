@@ -11,9 +11,9 @@
   <div class="row">
 		<div class="col-xs-6">
 			<% if @topic.video != "" %>
-					<iframe width="560" height="315" src="<%=@topic.video.gsub! 'watch?v=', 'embed/'%>" frameborder="0" allowfullscreen></iframe>
-				<% else %>
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/dWO9uP_VJV8" frameborder="0" allowfullscreen></iframe>
+				<iframe width="560" height="315" src="<%=@topic.video.gsub! 'watch?v=', 'embed/'%>" frameborder="0" allowfullscreen></iframe>
+			<% else %>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/dWO9uP_VJV8" frameborder="0" allowfullscreen></iframe>
 				<% end %>
 		</div>
 
@@ -22,7 +22,7 @@
 			  	<h3 class="col-xs-12"> <%= @topic.title %></h3>
 			    <i><p class="col-xs-12"> Date: <%= @topic.date %> </p></i>
 			    <p class="col-xs-12"> <%= @topic.content %> </p>
-			    <%= link_to "edit", edit_topic_path(@topic), :class => 'btn btn-default' %>
+			    <div class="col-xs-12"><%= link_to "Edit this Topic!", edit_topic_path(@topic), :class => 'btn btn-default' %></div>
 			    <i><div class="col-xs-12"> <%= link_to "Back to the topic list!", topics_path %></div><i>
 				</div>
 		</div>

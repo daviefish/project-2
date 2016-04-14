@@ -21,7 +21,7 @@ class TopicsController < ApplicationController
 
   def create
     @user = User.find(session[:user_id])
-    @topic = @user.topics.new ({
+    @topic = @user.topics.new({
       title: params[:title],
       date:  params[:date],
       content: params[:content],

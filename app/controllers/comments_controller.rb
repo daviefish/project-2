@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+  class CommentsController < ApplicationController
   def index
   end
 
@@ -13,12 +13,6 @@ class CommentsController < ApplicationController
 
   def create
     @user = User.find(session[:user_id])
-    # create a comment with the user id from sessin
-    # and the topic id from params[:id]
-
-    # @user.comments.create({
-    #   content: params[:comment][:content],
-    # })
 
     @comment = @user.comments.new ({
       content: params[:comment][:content],

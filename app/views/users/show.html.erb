@@ -1,33 +1,39 @@
 <div class="container">
-  <h1 class="col-md-12 topic-container"><%= @user.name %></h1>
 
   <div class="row">
+    <div class="col-xs-12">
+      <h1 class="topic-container"><%= @user.name %></h1>
+    </div>
+  </div>
+
+
+  <div class="row">
+
     <div class= "col-xs-3">
       <img class="img-thumbnail" <%= image_tag @user.avatar.url %>
     </div>
 
-    <div class="col-xs-offset-0 col-xs-8 topic-container">
-    <br>
-      <p>
+    <div class="col-xs-9 topic-container">
+      <p class="topic-container">
         <strong><%= @user.name %> loves training calisthenics! </strong>
       </p >
       <ul>
         <li>Gender: <%=@user.gender%></li>
         <li>Location: <%=@user.location%></li>
+        <p> <i> <%= link_to "Back to the user list!", users_path %> </i> </p>
       </ul>
     </div>
 
   </div>
 
-  <div style="margin-bottom: 15px"><%= link_to "Back to the user list!", users_path %> </div>
 
 
   <h2 style="margin-bottom: 15px" class="topic-container">List of <%=@user.name%>'s Topics</h2>
 
       <% @user.topics.each do |topic| %>
         <div class="col-xs-12 topic-container" style="border: solid black 1px; margin-top: 15px">
-        <p>Title: <%= link_to topic.title, topic_path(topic)%></p>
-        <p>Date: <%= topic.date %></p>
+          <p>Title: <%= link_to topic.title, topic_path(topic)%></p>
+          <p>Date: <%= topic.date %></p>
         </div>
         <br>
       <% end %>

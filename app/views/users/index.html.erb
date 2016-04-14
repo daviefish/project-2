@@ -1,27 +1,38 @@
 <div class="container">
-  <h1 class="col-xs-12 topic-container">Users</h1>
 
-    <% if current_user %>
-      <div class="row">
-        <ul>
-          <% @users.each do |user| %>
-            <div class="col-xs-12 topic-container" style="margin-top: 15px"> <%= link_to user.name, user_path(user) %> </div>
-            <div><img class="img-thumbnail col-xs-2" <%= image_tag user.avatar.url %></div>
-            <i><div class="col-xs-offset-0 col-xs-12"><%= link_to 'Delete this user!', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></i></div>
-            <br>
-          <% end %>
-        </ul>
+
+  <% if current_user %>
+
+  <div style="text-align: center; margin: auto" class="col-xs-12">
+
+    <div class="row">
+      <h1 class="col-xs-12 topic-container">Users</h1>
+    </div>
+
+    <div class="row">
+        <% @users.each do |user| %>
+          <div class="col-xs-12 topic-container" style="margin-top: 15px; margin-bottom: 15px">
+              <div class="col-xs-4" style="margin-top: 15px; font-size: 24px"> <%= link_to user.name, user_path(user) %> </div>
+              <div class="col-xs-4" style="margin-top: 15px; font-size: 24px"> <%= user.gender %> </div>
+              <div class="col-xs-4" style="margin-top: 15px; font-size: 24px"> <%= user.location %> </div>
+              <i><div class="col-xs-4"><%= link_to 'Delete this user!', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></i></div>
+          </div>
+        <% end %>
+    </div>
+
+  </div>
+
+    <% else %>
+
+    <div class="row">
+      <div class="col-xs-12 topic-container">
+        <h1>Welcome Calisthenics Enthusiasts!</h1>
+        <a href="/login" class="col-xs-12" style="font-size: 250%"> Login </a>
+        <a href="/signup" class="col-xs-12" style="font-size: 250%"> Sign up </a>
       </div>
+     </div>
 
-  <form action="/logout" method="post">
-    <input name="_method" value="DELETE" type="hidden">
-    <button style="margin-top: 20px">Logout</button>
-  </form>
-
-  <% else %>
-    <a href="/login" class="col-md-12"> Login </a>
-    <a href="/signup" class="col-md-12"> Sign up </a>
-  <% end %>
+    <% end %>
 
 </div>
 
